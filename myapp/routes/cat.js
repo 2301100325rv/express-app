@@ -1,6 +1,9 @@
 var express = require("express");
 var router = express.Router();
 const request = require("request");
+const cors = require("cors");
+
+router.use(cors());
 
 router.get("/", async (req, res) => {
   request(
@@ -10,7 +13,7 @@ router.get("/", async (req, res) => {
         const data = JSON.parse(body);
         res.json(data);
       }
-    }
+    },
   );
 });
 
